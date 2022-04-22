@@ -37,7 +37,12 @@ class WeatherApp {
             getWeatherByCity(query)
             .then(data => {
                 this.displayWeatherData(data);
-            });
+                this.viewElems.searchInput.style.borderColor = 'black'
+                this.viewElems.searchInput.value = ""
+            }).catch(() => {
+                this.fadeInOut();
+                this.viewElems.searchInput.style.borderColor = 'red'
+            })
         }
     }
 
